@@ -30,12 +30,15 @@ Reject or ask for the missing input when:
 ## Skill Layout
 
 ```
-skills/prompt-optimizer/
+prompt_optimize_skill/
 ├── SKILL.md                         # this file — your orchestration spec
+├── README.md                        # user-facing documentation
 ├── assets/
 │   ├── requirements.txt             # runtime dependencies
 │   ├── .env.example                 # env var template for API keys
 │   └── prompts/                     # LLM step templates you read and execute
+├── references/
+│   └── usage.md                     # agent usage reference
 └── scripts/
     ├── run_prompt_optimizer.py      # CLI wrapper (call by absolute path)
     └── prompt_optimizer/
