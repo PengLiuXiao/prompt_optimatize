@@ -31,7 +31,7 @@
 ```bash
 # 下载 prompt_optimize 文件夹到 skills 目录
 mkdir -p ~/.gemini/config/skills && \
-curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+curl -sL https://github.com/PengLiuXiao/prompt_optimatize/archive/refs/heads/main.tar.gz | \
 tar xz --strip-components=1 --include='*/prompt_optimize/*' -C ~/.gemini/config/skills
 ```
 
@@ -39,7 +39,7 @@ tar xz --strip-components=1 --include='*/prompt_optimize/*' -C ~/.gemini/config/
 
 ```bash
 mkdir -p .agents/skills && \
-curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+curl -sL https://github.com/PengLiuXiao/prompt_optimatize/archive/refs/heads/main.tar.gz | \
 tar xz --strip-components=1 --include='*/prompt_optimize/*' -C .agents/skills
 ```
 
@@ -47,7 +47,7 @@ tar xz --strip-components=1 --include='*/prompt_optimize/*' -C .agents/skills
 
 ```bash
 mkdir -p .agents/skills && \
-curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+curl -sL https://github.com/PengLiuXiao/prompt_optimatize/archive/refs/heads/main.tar.gz | \
 tar xz --strip-components=1 --include='*/prompt_optimize/*' -C .agents/skills
 ```
 
