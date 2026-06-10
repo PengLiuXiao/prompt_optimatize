@@ -22,45 +22,62 @@
 
 ## 📦 安装
 
-本仓库就是一个完整的 Skill 文件夹，**克隆即安装**。
+只需下载 `prompt_optimize` 文件夹，放到 Agent 的 skills 目录即可。
 
 ### Gemini CLI
 
-```bash
-# 全局安装（所有项目可用）
-git clone https://github.com/<your-username>/prompt_optimize_skill.git \
-  ~/.gemini/config/skills/prompt_optimize_skill
+**全局安装**（所有项目可用）：
 
-# 或项目级安装（仅当前项目可用）
-git clone https://github.com/<your-username>/prompt_optimize_skill.git \
-  ./.agents/skills/prompt_optimize_skill
+```bash
+# 下载 prompt_optimize 文件夹到 skills 目录
+mkdir -p ~/.gemini/config/skills && \
+curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+tar xz --strip-components=1 --include='*/prompt_optimize/*' -C ~/.gemini/config/skills
+```
+
+**项目级安装**（仅当前项目可用）：
+
+```bash
+mkdir -p .agents/skills && \
+curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+tar xz --strip-components=1 --include='*/prompt_optimize/*' -C .agents/skills
 ```
 
 ### Claude Code
 
 ```bash
-git clone https://github.com/<your-username>/prompt_optimize_skill.git \
-  ./.agents/skills/prompt_optimize_skill
+mkdir -p .agents/skills && \
+curl -sL https://github.com/<your-username>/prompt_optimize_skill/archive/refs/heads/main.tar.gz | \
+tar xz --strip-components=1 --include='*/prompt_optimize/*' -C .agents/skills
 ```
 
-### 安装依赖
+安装后的目录结构：
+
+```
+.agents/skills/          # 或 ~/.gemini/config/skills/
+└── prompt_optimize/     ← 这就是完整的 Skill
+    ├── SKILL.md
+    ├── assets/
+    ├── scripts/
+    └── references/
+```
+
+### 安装 Python 依赖
 
 ```bash
-pip install -r <skill-path>/assets/requirements.txt
+pip install -r <skill-path>/prompt_optimize/assets/requirements.txt
 ```
 
 > **Python 版本要求**: 3.10+
-> 
-> 依赖项：[litellm](https://github.com/BerriAI/litellm) (多模型 API)、[openpyxl](https://openpyxl.readthedocs.io/) (Excel 读取)、[python-dotenv](https://github.com/theskumar/python-dotenv) (环境变量)
 
 ---
 
 ## 🔧 配置 API Key
 
-将模板复制为 `.env` 并填入你的 Key：
+将模板复制到项目根目录并填入你的 Key：
 
 ```bash
-cp <skill-path>/assets/.env.example .env
+cp <skill-path>/prompt_optimize/assets/.env.example .env
 ```
 
 ```env

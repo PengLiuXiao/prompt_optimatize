@@ -30,9 +30,8 @@ Reject or ask for the missing input when:
 ## Skill Layout
 
 ```
-prompt_optimize_skill/
+prompt_optimize/
 ├── SKILL.md                         # this file — your orchestration spec
-├── README.md                        # user-facing documentation
 ├── assets/
 │   ├── requirements.txt             # runtime dependencies
 │   ├── .env.example                 # env var template for API keys
