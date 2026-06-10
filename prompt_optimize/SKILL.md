@@ -36,8 +36,6 @@ prompt_optimize/
 │   ├── requirements.txt             # runtime dependencies
 │   ├── .env.example                 # env var template for API keys
 │   └── prompts/                     # LLM step templates you read and execute
-├── references/
-│   └── usage.md                     # agent usage reference
 └── scripts/
     ├── run_prompt_optimizer.py      # CLI wrapper (call by absolute path)
     └── prompt_optimizer/
@@ -215,6 +213,14 @@ Payload shape:
 Write the global-best prompt to `OUT/final_prompt.md`. Read `assets/prompts/best_round_report.md` and write a human-readable rationale to `OUT/best_round_report.md`. All numbers must come from real artifacts. Do not claim "production safe" unless every guardrail passed and the gain is meaningful.
 
 ## Degradation
+
+CLI exit codes (every subcommand follows this contract):
+
+- `0` — success, continue.
+- `2` — input/boundary error (invalid dataset, missing/unresolvable `--api-key`, bad args). Stop and ask the user to fix the input; do not retry.
+- `1` — unexpected runtime failure (e.g. every row in `run-inference` errored). Report the command and stderr to the user.
+
+Step-level degradation:
 
 - `validate-inputs` invalid → stop, report to user (exit-2 boundary).
 - An LLM step yields nothing usable (no gradients / no suggestions / no strategies) → record the round and keep the current prompt; do not fabricate.
